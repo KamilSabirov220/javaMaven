@@ -7,6 +7,13 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class PersonApi {
     public static Person getPersonfromApi(){
@@ -36,9 +43,10 @@ public class PersonApi {
         res.setName(object.getJSONObject("name").getString("first"));
         res.setLastName(object.getJSONObject("name").getString("last"));
         res.setCountry(object.getJSONObject("location").getString("country"));
-        ///дополнить поля
+        res.setDate(LocalDateTime.from(ZonedDateTime.parse(object.getJSONObject("dob").getString("date"))));
+        res.setUserName(object.getJSONObject("login").getString("username"));
+        res.setPassword(object.getJSONObject("login").getString("password"));
 
-
-    return res;
+        return res;
     }
 }
