@@ -49,6 +49,7 @@ public class PersonApi {
         res.setDate(LocalDateTime.from(ZonedDateTime.parse(object.getJSONObject("dob").getString("date"))));
         res.setUserName(object.getJSONObject("login").getString("username"));
         res.setPassword(object.getJSONObject("login").getString("password"));
+        res.setGender(object.getString("gender"));
 
         return res;
     }

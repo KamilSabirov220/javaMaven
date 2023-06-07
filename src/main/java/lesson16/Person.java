@@ -11,17 +11,27 @@ public class Person {
     private LocalDateTime date;
     private String userName;
     private String password;
+    private String gender;
 
     public Person() {
     }
 
-    public Person(String name, String lastName, String country, LocalDateTime date, String userName, String password) {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Person(String name, String lastName, String country, LocalDateTime date, String userName, String password, String gender) {
         this.name = name;
         this.lastName = lastName;
         this.country = country;
         this.date = date;
         this.userName = userName;
         this.password = password;
+        this.gender = gender;
     }
 
     public String getName() {
@@ -84,7 +94,8 @@ public class Person {
         if (!Objects.equals(country, person.country)) return false;
         if (!Objects.equals(date, person.date)) return false;
         if (!Objects.equals(userName, person.userName)) return false;
-        return Objects.equals(password, person.password);
+        if (!Objects.equals(password, person.password)) return false;
+        return Objects.equals(gender, person.gender);
     }
 
     @Override
@@ -95,6 +106,7 @@ public class Person {
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
         return result;
     }
 
@@ -107,6 +119,7 @@ public class Person {
                 ", date=" + date +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 }
