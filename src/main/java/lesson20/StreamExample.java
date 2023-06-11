@@ -23,8 +23,8 @@ public class StreamExample {
                 .collect(Collectors.toList());*/
 
         System.out.println("Женщины старше 20 лет");
-        personFromApi.stream().filter(person -> person.getGender().equals("female"))
-                .filter(p -> LocalDateTime.now().getYear() - p.getDate().getYear() > 20)
+        personFromApi.stream().filter(person ->
+                        person.getGender().equals("female") && LocalDateTime.now().getYear() - person.getDate().getYear() > 20)
                 .forEach(System.out::println);
 
         System.out.println();

@@ -50,6 +50,7 @@ public class PersonApi {
         res.setUserName(object.getJSONObject("login").getString("username"));
         res.setPassword(object.getJSONObject("login").getString("password"));
         res.setGender(object.getString("gender"));
+        res.setAge(object.getJSONObject("dob").getInt("age"));
 
         return res;
     }
