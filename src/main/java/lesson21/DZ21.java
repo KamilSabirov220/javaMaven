@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.Stream;
 
 public class DZ21 {
@@ -24,15 +25,23 @@ public class DZ21 {
         female.forEach(System.out::println);
 
         //Cамая взрослая женщина
-        System.out.print("Cамой взрослой женщине "
-                + female.stream().mapToInt(Person::getAge).max()
-                + "лет");
+        System.out.println("Самая взрослая женщина");
+        int maxAgeFemale = female.stream().mapToInt(Person::getAge).max().getAsInt();
+        for (Person person1 : female) {
+            if (person1.getAge() == maxAgeFemale) {
+                System.out.println(person1);
+            }
+        }
 
 
         //Cамая молодая женщина
-        System.out.print("Cамой молодой женщине "
-                + female.stream().mapToInt(Person::getAge).min()
-                + "лет");
+        System.out.println("Самая молодая женщина");
+        int minAgeFemale = female.stream().mapToInt(Person::getAge).min().getAsInt();
+        for (Person person1 : female) {
+            if (person1.getAge() == minAgeFemale) {
+                System.out.println(person1);
+            }
+        }
 
 
         //Количествов списке
@@ -56,15 +65,23 @@ public class DZ21 {
                 .toList();
 
         //Cамый взрослый мужчина
-        System.out.print("Cамому взрослому мужчине "
-                + male.stream().mapToInt(Person::getAge).max()
-                + "лет");
+        System.out.println("Самый взрослый мужчина");
+        int maxAgeMale = male.stream().mapToInt(Person::getAge).max().getAsInt();
+        for (Person person1 : male) {
+            if (person1.getAge() == maxAgeMale) {
+                System.out.println(person1);
+            }
+        }
 
 
         //Cамый молодой мужчина
-        System.out.print("Cамому молодому мужчине "
-                + male.stream().mapToInt(Person::getAge).min()
-                + "лет");
+        System.out.println("Самый молодой мужчина");
+        int minAgeMale = male.stream().mapToInt(Person::getAge).min().getAsInt();
+        for (Person person1 : male) {
+            if (person1.getAge() == minAgeMale) {
+                System.out.println(person1);
+            }
+        }
 
 
         //Количествов списке
